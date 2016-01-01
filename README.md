@@ -10,3 +10,5 @@ Docker normally assigns a random MAC address every time a container is created. 
 
 ### Environment variables
 Use `BEAST_PORT_30005_TCP_ADDR` and `BEAST_PORT_30005_TCP_PORT` to configure the connection details for the Beast data feed. If you link in a container named `beast` that exposes port 30005 these will be set by Docker directly.
+
+MLAT support is enabled by default. You can set `MLAT` to `no` if you would like to disable it.

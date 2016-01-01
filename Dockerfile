@@ -1,5 +1,7 @@
 FROM ubuntu:15.10
 
+ENV MLAT yes
+
 RUN apt-get -y update && apt-get -y upgrade && apt-get -y dist-upgrade
 
 RUN apt-get -y install git
