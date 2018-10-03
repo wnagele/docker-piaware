@@ -16,5 +16,9 @@ elif [ "no" = "${MLAT}" ]; then
   echo "mlat: 0" >> /root/.piaware
 fi
 
+if [ -n "${FEEDER_ID}" ]; then
+  /usr/bin/piaware-config feeder-id "${FEEDER_ID}"
+fi
+
 socat TCP-LISTEN:30005,fork TCP:${BEAST_PORT_30005_TCP_ADDR}:${BEAST_PORT_30005_TCP_PORT:-30005} &
 /usr/bin/piaware -debug
