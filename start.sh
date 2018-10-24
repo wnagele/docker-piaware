@@ -8,13 +8,9 @@ if [ -z "${BEAST_PORT_30005_TCP_ADDR}" ]; then
   exit 1
 fi
 
-echo "user: $1" > /root/.piaware
-echo "password: $2" >> /root/.piaware
-if [ "yes" = "${MLAT}" ]; then
-  echo "mlat: 1" >> /root/.piaware
-elif [ "no" = "${MLAT}" ]; then
-  echo "mlat: 0" >> /root/.piaware
-fi
+/usr/bin/piaware-config flightaware-user "$1"
+/usr/bin/piaware-config flightaware-password "$2"
+/usr/bin/piaware-config allow-mlat "${MLAT}"
 
 socat TCP-LISTEN:30005,fork TCP:${BEAST_PORT_30005_TCP_ADDR}:${BEAST_PORT_30005_TCP_PORT:-30005} &
 /usr/bin/piaware -debug
