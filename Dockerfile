@@ -14,6 +14,8 @@ RUN apt update && apt install -y \
   socat \
   tcl8.6-dev \
   wget
+  
+RUN apt update && apt install -y libboost-system-dev libboost-program-options-dev libboost-regex-dev libboost-filesystem-dev
 
 RUN git clone https://github.com/flightaware/piaware_builder.git
 RUN piaware_builder/sensible-build.sh stretch
