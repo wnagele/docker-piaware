@@ -9,6 +9,10 @@ RUN apt update && apt install -y \
   devscripts \
   dh-systemd \
   git \
+  libboost-filesystem-dev \
+  libboost-program-options-dev \
+  libboost-regex-dev \
+  libboost-system-dev \
   libz-dev \
   python3-dev \
   python3-venv \
