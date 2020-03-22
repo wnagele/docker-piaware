@@ -20,8 +20,10 @@ RUN apt update && apt install -y \
   tcl8.6-dev \
   wget
 
-RUN git clone https://github.com/flightaware/piaware_builder.git
-RUN piaware_builder/sensible-build.sh stretch
+RUN git clone https://github.com/flightaware/piaware_builder.git /piaware_builder
+WORKDIR /piaware_builder
+RUN git checkout 8cdcb9edec2b30d47be8bded54c30dc8876b0434
+RUN ./sensible-build.sh stretch
 WORKDIR /piaware_builder/package-stretch
 RUN dpkg-buildpackage -b
 RUN apt install -y ../piaware_*.deb
