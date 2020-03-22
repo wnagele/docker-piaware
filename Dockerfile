@@ -6,6 +6,7 @@ RUN apt update && apt install -y \
   autoconf \
   build-essential \
   debhelper \
+  devscripts \
   dh-systemd \
   git \
   libz-dev \
