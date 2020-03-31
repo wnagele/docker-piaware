@@ -1,0 +1,25 @@
+name: latest
+
+on:
+  push:
+    branches: master
+
+jobs:
+  latest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Login
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" |docker login --username wnagele --password-stdin
+
+      - name: Installation
+        uses: crazy-max/ghaction-docker-buildx@master
+
+      - name: Build
+        run: |
+          docker buildx build \
+            --platform linux/amd64,linux/386,linux/arm64,linux/arm/v6,linux/arm/v7 \
+            -t wnagele/piaware:latest \
+            --push .
