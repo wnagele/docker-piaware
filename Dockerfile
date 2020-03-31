@@ -1,5 +1,6 @@
 FROM debian:stretch
 
+ENV PIAWARE_VERSION 3.8.0
 ENV MLAT yes
 
 RUN apt update && apt install -y \
@@ -22,7 +23,7 @@ RUN apt update && apt install -y \
 
 RUN git clone https://github.com/flightaware/piaware_builder.git /piaware_builder
 WORKDIR /piaware_builder
-RUN git checkout 8cdcb9edec2b30d47be8bded54c30dc8876b0434
+RUN git fetch --all --tags && git checkout tags/v${PIAWARE_VERSION}
 RUN ./sensible-build.sh stretch
 WORKDIR /piaware_builder/package-stretch
 RUN dpkg-buildpackage -b
