@@ -1,6 +1,6 @@
 ### Requirements
  * Register a Flightaware account ([flightaware.com](http://flightaware.com))
- * Beast data feed (for instance [mradochonski/dump1090-docker](https://hub.docker.com/r/mradochonski/dump1090-docker))
+ * Beast data feed (for instance [mradochonski/dump1090-docker](https://hub.docker.com/r/mradochonski/dump1090-docker) or [jraviles/dump1090](https://hub.docker.com/r/jraviles/dump1090))
 
 ### Running
 `docker run --link dump1090:beast --env FEEDER_ID=<feeder id> wnagele/piaware <flightaware user> <flightaware password>`
