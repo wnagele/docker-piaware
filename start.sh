@@ -23,4 +23,4 @@ if [ -n "${FEEDER_ID}" ]; then
 fi
 
 socat TCP-LISTEN:30005,fork TCP:${BEAST_PORT_30005_TCP_ADDR}:${BEAST_PORT_30005_TCP_PORT:-30005} &
-/usr/bin/piaware
+/usr/bin/piaware -plainlog
